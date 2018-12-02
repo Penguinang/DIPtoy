@@ -60,7 +60,7 @@ int main(int argc, char const *argv[]) {
     unsigned char *dest = malloc(sizeof(unsigned char) * x * y * channels);
     memcpy(dest, source, sizeof(unsigned char) * x * y * channels);
 #define CONVOLUTION_WIDTH 3
-#define DOUBLE_DIRECTION 1
+#define DOUBLE_DIRECTION 0
 #define NORMALIZATION 0
     double convolution_kernel[CONVOLUTION_WIDTH][CONVOLUTION_WIDTH] = {
         // average filter
@@ -71,9 +71,14 @@ int main(int argc, char const *argv[]) {
         // {1.0/CONVOLUTION_WIDTH/CONVOLUTION_WIDTH, 1.0/CONVOLUTION_WIDTH/CONVOLUTION_WIDTH, 1.0/CONVOLUTION_WIDTH/CONVOLUTION_WIDTH, 1.0/CONVOLUTION_WIDTH/CONVOLUTION_WIDTH, 1.0/CONVOLUTION_WIDTH/CONVOLUTION_WIDTH}  //
         
         // sobel
-        {-1, 0, 1},
-        {-2, 0, 2},
-        {-1, 0, 1}
+        // {-1, 0, 1},
+        // {-2, 0, 2},
+        // {-1, 0, 1}
+
+        // Laplace
+        {1, 1, 1},
+        {1, -8, 1},
+        {1, 1, 1}
 
         // prewitt
         // {-1, 0, 1},

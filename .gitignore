@@ -14,3 +14,10 @@ average-filter
 convolution
 gray
 median
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+bin
+lib
+Makefile
+src/grayscale-transform/Makefile
