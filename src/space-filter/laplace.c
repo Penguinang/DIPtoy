@@ -33,7 +33,7 @@ int main(int argc, char const *argv[]) {
     dest = malloc(sizeof(unsigned char) * x * y * channels);
     memcpy(dest, source, sizeof(unsigned char) * x * y * channels);
 
-    unsigned char cvt_value[4] = {};
+    unsigned char cvt_value[4] = {0};
     for(int iy = K_SIZE/2; iy < y - K_SIZE/2; ++ iy)
         for(int ix = K_SIZE/2; ix < x - K_SIZE/2; ++ ix){
             for(int m = 0; m < K_SIZE; ++ m)

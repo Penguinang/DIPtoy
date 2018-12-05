@@ -28,7 +28,7 @@ int main(int argc, char const *argv[]) {
 
 #define CONVOLUTION_WIDTH 5
 #define MAX_CHANNELS 4
-    unsigned int convolution_kernels[MAX_CHANNELS][CONVOLUTION_WIDTH][CONVOLUTION_WIDTH] = {};
+    unsigned int convolution_kernels[MAX_CHANNELS][CONVOLUTION_WIDTH][CONVOLUTION_WIDTH] = {0};
 
     for (size_t i = CONVOLUTION_WIDTH / 2 + 1; i <= x - CONVOLUTION_WIDTH / 2; ++i) {
         for (size_t j = CONVOLUTION_WIDTH / 2 + 1; j <= y - CONVOLUTION_WIDTH / 2; ++j) {

@@ -22,7 +22,7 @@ void vec_mul(const void *a, const void *b, void *result, size_t count, size_t si
     void *product = malloc(size);
     memcpy(product, result, size);
     for (size_t i = 0; i < count; ++i) {
-        mul(a + i * size, b + i * size, product);
+        mul((char*)a + i * size, (char*)b + i * size, product);
         add(product, result, result);
     }
 
@@ -32,7 +32,7 @@ void vec_mul(const void *a, const void *b, void *result, size_t count, size_t si
 // *result must be initialized to 0 before this function
 void sum(const void *a, void *result, size_t count, size_t size, void (*add)(const void *, const void*, void*)){
     for(size_t i = 0; i < count; ++ i){
-        add(result, a + i * size, result);
+        add(result, (char*)a + i * size, result);
     }
 }
 // Specialization for int
@@ -101,7 +101,7 @@ int main(int argc, char const *argv[]) {
 #endif
 
 #define MAX_CHANNELS 4
-    int convolution_sum[MAX_CHANNELS] = {};
+    int convolution_sum[MAX_CHANNELS] = {0};
     
 #if DOUBLE_DIRECTION
     int convolution_kernel2[CONVOLUTION_WIDTH][CONVOLUTION_WIDTH] = {

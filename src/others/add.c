@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]) {
 #define S_N 2
     char *input[S_N] = {INPUT1, INPUT2};
     unsigned int x[S_N], y[S_N], channels[S_N];
-    unsigned char *source[S_N] = {};
+    unsigned char *source[S_N] = {0};
     for (int i = 0; i < S_N; ++i)
         source[i] = stbi_load(input[i], x + i, y + i, channels + i, 0);
 
